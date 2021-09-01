@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const commandSchema = new Schema({
+    manager: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "manager",
+        required: true
+    },
+
     nomProduit: {
         type: String,
         required: true
@@ -13,7 +19,13 @@ const commandSchema = new Schema({
     quantité: {
         type: Number,
         required: true
-    }
+    },
+    dateCommand: {
+        type: Date,
+        // default: Date.now,
+        required: true
+
+    },
 
 })
 

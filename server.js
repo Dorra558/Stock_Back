@@ -18,7 +18,7 @@ app.use('/app/manager', commandManager)
 
 
 // configuration server ==> connection to server
-const PORT = process.env.PORT || "7000";
+const PORT = process.env.PORT || "4000";
 
 app.listen(PORT, () => {
     console.log(`running server ${PORT}`);

@@ -3,7 +3,7 @@ const router = express.Router()
 const manager = require('../controller/gestionnaireController');
 
 
-//routes of service
+//routes of manager
 router.post('/addManagers', manager.addManager)
 router.get('/getManagers', manager.getManager)
 router.delete('/:id', manager.deleteManager)

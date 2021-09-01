@@ -7,15 +7,22 @@ module.exports = {
 
     addCommand: async(req, res) => {
         // const { name, email } = req.body
+        const manager = req.body.manager
         const nomProduit = req.body.nomProduit
         const categorie = req.body.categorie
         const quantité = req.body.quantité
+        const dateCommand = req.body.dateCommand
+
         try {
             command = new Commands({
+                manager,
                 nomProduit,
                 categorie,
-                quantité
+                quantité,
+                dateCommand
+
             })
+
             await command.save()
             res.json(command)
         } catch (error) {

@@ -7,15 +7,13 @@ module.exports = {
 
     addManager: async(req, res) => {
         // const { name, email } = req.body
-        const nomManager = req.body.nomManager
-        const prenom = req.body.prenom
+        const nomCompletManager = req.body.nomCompletManager
         const email = req.body.email
         const AdrDepot = req.body.AdrDepot
         const tel = req.body.tel
         try {
             manager = new Managers({
-                nomManager,
-                prenom,
+                nomCompletManager,
                 email,
                 AdrDepot,
                 tel

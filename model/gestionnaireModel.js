@@ -1,14 +1,10 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const manageSchema = new Schema({
-    nomManager: {
+    nomCompletManager: {
         type: String,
         required: true
 
-    },
-    prenom: {
-        type: String,
-        required: true
     },
     email: {
         type: String,
