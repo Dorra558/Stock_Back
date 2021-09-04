@@ -11,16 +11,12 @@ module.exports = {
         const nomProduit = req.body.nomProduit
         const categorie = req.body.categorie
         const quantité = req.body.quantité
-        const dateCommand = req.body.dateCommand
-
         try {
             command = new Commands({
                 manager,
                 nomProduit,
                 categorie,
-                quantité,
-                dateCommand
-
+                quantité
             })
 
             await command.save()
@@ -30,8 +26,10 @@ module.exports = {
         }
     },
     getCommand: async(req, res) => {
+
         try {
-            const command = await Commands.find();
+            const command = await Commands.find().populate('manager');
+            // const command = await Commands.find().populate('manager').select('-_id');
             res.json(command)
         } catch (error) {
             console.error(error.message)

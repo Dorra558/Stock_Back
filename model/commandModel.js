@@ -22,9 +22,7 @@ const commandSchema = new Schema({
     },
     dateCommand: {
         type: Date,
-        // default: Date.now,
-        required: true
-
+        default: Date.now,
     },
 
 })
