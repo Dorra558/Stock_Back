@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const manager = require('../controller/gestionnaireController');
 const { check } = require("express-validator");
+const authentification = require("../midelware/auth")
 
 
 //routes of manager
@@ -22,6 +23,9 @@ router.post("/loginManagers", [
     .not()
     .isEmpty()
 ], manager.loginManagers)
+
+router.get("/currentManager", authentification, manager.currentManagers)
+
 router.get('/getManagers', manager.getManager)
 
 router.delete('/:id', manager.deleteManager)

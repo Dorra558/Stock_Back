@@ -69,6 +69,7 @@ module.exports = {
                 email: admin.email,
                 password,
                 token
+
             });
         } catch (error) {
             res.status(500).send("Server error");
@@ -95,6 +96,23 @@ module.exports = {
     //         console.error(error.message);
     //     }
     // },
+
+
+
+
+    //Current user
+
+    currentManagers: async(req, res) => {
+        try {
+            const user = await Managers.findOne({ _id: req.user._id }).select("-password");
+            res.json(user);
+        } catch (error) {
+            console.error(error.message);
+            res.status(500).send("Server Error");
+        }
+    },
+
+
 
     // get manager
     getManager: async(req, res) => {
