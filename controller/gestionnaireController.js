@@ -103,8 +103,9 @@ module.exports = {
     //Current user
 
     currentManagers: async(req, res) => {
+        const id = req.user._id
         try {
-            const user = await Managers.findOne({ _id: req.user._id }).select("-password");
+            const user = await Managers.findOne({ _id: id }).select("-password");
             res.json(user);
         } catch (error) {
             console.error(error.message);
@@ -112,12 +113,21 @@ module.exports = {
         }
     },
 
+    currentOrderManagers: async(req, res) => {
+        try {
+            const user = await Managers.findOne({ _id: req.params.id });
+            res.json(user.commands);
+        } catch (error) {
+            console.error(error.message);
+            res.status(500).send("Server Error");
+        }
+    },
 
 
     // get manager
     getManager: async(req, res) => {
         try {
-            const manager = await Managers.find();
+            const manager = await Managers.find({ "role": "manager" })
             res.json(manager)
         } catch (error) {
             console.error(error.message)

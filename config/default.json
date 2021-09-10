@@ -1,4 +1,4 @@
 {
     "mongoURI": "mongodb+srv://root:admin@cluster0.7vnn8.mongodb.net/stockDB?retryWrites=true&w=majority",
-    "jwtSecret": "sarahsoltani"
+    "jwtSecret": "dorraAmri"
 }

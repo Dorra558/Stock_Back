@@ -5,7 +5,8 @@ const { check } = require("express-validator");
 const authentification = require("../midelware/auth")
 
 
-//routes of manager
+// ******************sign up of managers**************************
+
 router.post('/registerManagers', [
     check("nomCompletManager", "please enter your name")
     .not()
@@ -17,6 +18,8 @@ router.post('/registerManagers', [
     check("role", "wrong role mate").isIn(["admin", "manager"])
 ], manager.addManager)
 
+//***********************Login of Managers***************************** */
+
 router.post("/loginManagers", [
     check("email", "enter a valid email").isEmail(),
     check("password", "enter a password")
@@ -27,6 +30,7 @@ router.post("/loginManagers", [
 router.get("/currentManager", authentification, manager.currentManagers)
 
 router.get('/getManagers', manager.getManager)
+router.get('/currentManagerOrder/:id', manager.currentOrderManagers)
 
 router.delete('/:id', manager.deleteManager)
 

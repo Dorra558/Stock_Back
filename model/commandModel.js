@@ -4,7 +4,6 @@ const commandSchema = new Schema({
     manager: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "manager",
-        // required: true
     },
 
     nomProduit: {
@@ -15,7 +14,7 @@ const commandSchema = new Schema({
     categorie: {
         type: String,
         enum: ['Jus', 'Cake', 'Boisson', 'Eau', 'Biscuit', 'Lait'],
-        required: true
+
     },
     quantité: {
         type: Number,
@@ -25,7 +24,11 @@ const commandSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-
+    statut: {
+        type: String,
+        enum: ['En attente', 'Valider', 'Réfuser'],
+        default: 'En attente'
+    }
 
 })
 

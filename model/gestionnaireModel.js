@@ -34,11 +34,8 @@ const manageSchema = new Schema({
         type: String,
         enum: ['manager', 'admin'],
         required: true
-    }
-    // commands: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "command"
-    // }]
+    },
+    commands: []
 
 })
 manageSchema.methods.generateAuthToken = function() {
