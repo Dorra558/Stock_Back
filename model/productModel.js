@@ -1,22 +1,27 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+
 const productSchema = new Schema({
-    // manager: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "manager",
-    // },
-
-    nomProduct: {
-        type: String,
-        required: true
-
+    manager: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "manager",
     },
     categorie: {
         type: String,
         enum: ['Jus', 'Cake', 'Boisson', 'Eau', 'Biscuit', 'Lait'],
         // required: true
     },
+
+    nomProduct: {
+        type: String,
+        required: true
+
+    },
     quantité: {
+        type: Number,
+        required: true
+    },
+    prix: {
         type: Number,
         required: true
     },
@@ -27,11 +32,8 @@ const productSchema = new Schema({
     dateProduct: {
         type: Date,
         default: Date.now,
-    },
-    prix: {
-        type: Number,
-        required: true
-    },
+    }
+
 
 })
 

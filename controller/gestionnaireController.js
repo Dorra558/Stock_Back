@@ -113,6 +113,7 @@ module.exports = {
         }
     },
 
+    // get command by id of manager
     currentOrderManagers: async(req, res) => {
         try {
             const user = await Managers.findOne({ _id: req.params.id });
@@ -122,6 +123,18 @@ module.exports = {
             res.status(500).send("Server Error");
         }
     },
+
+    // get command by id of manager
+    currentProductManagers: async(req, res) => {
+        try {
+            const user = await Managers.findOne({ _id: req.params.id });
+            res.json(user.products);
+        } catch (error) {
+            console.error(error.message);
+            res.status(500).send("Server Error");
+        }
+    },
+
 
 
     // get manager

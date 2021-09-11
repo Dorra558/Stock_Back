@@ -7,11 +7,13 @@ db();
 app.use(express.json())
 const commandRoute = require('./routes/commandRoute')
 const commandManager = require('./routes/gestionnaireRoute')
+const productRoute = require('./routes/productRoute')
 
 app.use(cors())
 
 app.use('/app/command', commandRoute)
 app.use('/app/manager', commandManager)
+app.use('/app/product', productRoute)
 
 
 

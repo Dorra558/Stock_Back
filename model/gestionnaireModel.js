@@ -35,7 +35,8 @@ const manageSchema = new Schema({
         enum: ['manager', 'admin'],
         required: true
     },
-    commands: []
+    commands: [],
+    products: []
 
 })
 manageSchema.methods.generateAuthToken = function() {

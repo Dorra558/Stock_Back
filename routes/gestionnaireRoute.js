@@ -31,6 +31,7 @@ router.get("/currentManager", authentification, manager.currentManagers)
 
 router.get('/getManagers', manager.getManager)
 router.get('/currentManagerOrder/:id', manager.currentOrderManagers)
+router.get('/currentManagerProduct/:id', manager.currentProductManagers)
 
 router.delete('/:id', manager.deleteManager)
 

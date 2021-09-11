@@ -9,7 +9,6 @@ module.exports = {
     addCommand: async(req, res) => {
         // const { name, email } = req.body
         const manager = req.body.manager
-            // const nomManger = req.body.nomManger
         const nomProduit = req.body.nomProduit
         const categorie = req.body.categorie
         const quantité = req.body.quantité
@@ -17,7 +16,6 @@ module.exports = {
         try {
             command = new Commands({
                 manager,
-                // nomManger,
                 nomProduit,
                 categorie,
                 quantité,
