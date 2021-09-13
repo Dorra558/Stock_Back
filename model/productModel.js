@@ -14,20 +14,20 @@ const productSchema = new Schema({
 
     nomProduct: {
         type: String,
-        required: true
+
 
     },
     quantité: {
         type: Number,
-        required: true
+
     },
     prix: {
         type: Number,
-        required: true
+
     },
     dateExpirProduct: {
         type: Date,
-        required: true
+
     },
     dateProduct: {
         type: Date,

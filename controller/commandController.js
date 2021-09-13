@@ -1,6 +1,7 @@
 const Commands = require('../model/commandModel')
 const Ges = require('../model/gestionnaireModel')
-
+    // const mongodb = require('mongodb')
+var ObjectId = require('mongodb').ObjectId;
 
 module.exports = {
 
@@ -78,12 +79,23 @@ module.exports = {
     },
 
     deleteCommand: async(req, res) => {
+
+
+        // const _id = new ObjectID(req.params.id);
         try {
-            const command = await Commands.findByIdAndDelete(req.params.id)
-            res.json(command)
+            const id = Commands.manager
+            const Gestionnairee = await Ges.findById(req.params.id)
+                // collection.update({ _id: id }, { $pull: { 'contact.phone': { number: '+1786543589455' } } });
+                //   const command = await collection.deleteOne({_id : id},{$pull:{'manager.commands'}:{id : "613b73b329987c5c12dc43bd"}})
+                // const command = await Ges.findByIdAndDelete(req.params.id)
+                // const comd = await Gestionnairee.commands.findByIdAndDelete(req.params.id)
+
+
+            res.json(Gestionnairee)
         } catch (error) {
             console.error(error.message);
         }
+
     },
 
     updateCommand: async(req, res) => {
